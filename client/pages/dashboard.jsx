@@ -22,7 +22,9 @@ export default function Dashboard() {
       console.log(message);
     }
 
-    if(!user) router.push('/')
+    if(!user) {
+      router.push('/')
+    }
     
     dispatch(getTasks())
 
@@ -34,7 +36,7 @@ export default function Dashboard() {
       dispatch(reset())
     }
 
-  }, [user, router, dispatch]);
+  }, [user, isError, message, router, dispatch]);
 
   return (
     <>
@@ -50,7 +52,7 @@ export default function Dashboard() {
           <Hero/>
           <section className='flex justify-between'>
             <div className="w-full lg:w-[65%]">
-              {tasks.length > 0 && tasks !== "undefined"
+              {user && tasks.length > 0 && tasks !== "undefined"
                 ? (tasks.map((task) => (
                     <Task key={task._id} props={task}/>
                   )))

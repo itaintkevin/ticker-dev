@@ -1,20 +1,13 @@
-import { useState } from "react"
 import Navbar from "../components/Navbar"
 import Head from 'next/head'
 import Signin from "@/components/Auth/Signin"
 import Signup from "@/components/Auth/Signup"
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useSelector } from 'react-redux'
 
 export default function Home() {
-  const [authComponent, setAuthComponent] = useState({
-    signin: true,
-    signup: false
-  });
-  
-  const handleAuth = () => {
-
-  }
+  const { login } = useSelector( (state) => state.auth);
 
   return (
     <>
@@ -30,7 +23,7 @@ export default function Home() {
           <Navbar />
           <div className="flex items-center justify-center h-full">
             {
-              authComponent.signin == true
+              login
                 ? <Signin/>
                 : <Signup/>
             }

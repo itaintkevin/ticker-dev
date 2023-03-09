@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { createTask } from "@/redux/tasks/taskSlice";
+import { createTask, getTasks } from "@/redux/tasks/taskSlice";
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -79,6 +79,8 @@ export default function AddNewTask() {
       setStatus("");
       toast.success("Task Added Successfully");
     }
+
+    dispatch(getTasks())
   }
   console.log(priority)
 

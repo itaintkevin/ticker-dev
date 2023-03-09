@@ -93,5 +93,6 @@ module.exports = {
     getTask,
     createTask,
     deleteTask,
-    updateTask
+    updateTask,
+    
 }

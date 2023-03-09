@@ -10,6 +10,8 @@ const initialState = {
     isError: false,
     isSuccess: false,
     isLoading: false,
+    login: true,
+    register: false,
     message: "",
 }
 
@@ -47,6 +49,14 @@ export const authSlice = createSlice({
             state.isError = false;
             state.isSuccess = false;
             state.message = "";
+        },
+        setRegister: (state) => {
+            state.login = false;
+            state.register = true;
+        },
+        setLogin: (state) => {
+            state.login = true;
+            state.register = false;
         }
     },
     extraReducers: (builder) => {
@@ -85,5 +95,5 @@ export const authSlice = createSlice({
     }
 })
 
-export const { reset } = authSlice.actions
+export const { setLogin, setRegister, reset } = authSlice.actions
 export default authSlice.reducer

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { toast } from 'react-toastify'
 import { login, reset } from '../../redux/auth/authSlice'
 import { useRouter } from 'next/router'
+import { setRegister } from '../../redux/auth/authSlice'
 
 export default function Signin() {
 
@@ -38,6 +39,10 @@ export default function Signin() {
             ...prevState,
             [e.target.name]: e.target.value,
         }))
+    }
+
+    const handleSignUp = () => {
+        dispatch(setRegister());
     }
 
     const onSubmit = (e) => {
@@ -94,7 +99,7 @@ export default function Signin() {
     </form>
     <p className="text-center mt-2">
         Don&apos;t have an account?&nbsp; 
-        <button type="submit" className="text-green-400">
+        <button type="submit" onClick={handleSignUp} className="text-green-400">
             Sign up.
         </button>
     </p>

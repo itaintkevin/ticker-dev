@@ -14,7 +14,7 @@ export default function Filters() {
         </div>
         <div className="flex">
           <p className="text-lg font-medium mr-4">Status:</p>
-          <p className="border-2 border-green-300 hover:bg-green-400 transition duration-300 text-md font-semibold rounded-md px-3 mx-1 shadow-md h-max">Yet to Start</p>
+          <p className="border-2 border-green-300 hover:bg-green-400 transition duration-300 text-md font-semibold rounded-md px-3 mx-1 shadow-md h-max">To Do</p>
           <p className="border-2 border-yellow-200 hover:bg-yellow-300 transition duration-300 text-md font-semibold rounded-md px-3 mx-1 shadow-md h-max">Doing</p>
           <p className="border-2 border-red-300 hover:bg-red-400 transition duration-300 text-md font-semibold rounded-md px-3 mx-1 shadow-md h-max">Done</p>
         </div>

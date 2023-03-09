@@ -1,8 +1,10 @@
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const taskRoutes = require('./routes/taskRoutes');
 const userRoutes = require('./routes/userRoutes');
+const subTaskRoutes = require('./routes/subTaskRoutes');
 require('colors');
 require('dotenv').config();
 
@@ -25,6 +27,20 @@ app.use((req, res, next) => {
 // routes
 app.use("/api/tasks", taskRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/subTasks", subTaskRoutes);
+
+// Serve client
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')))
+
+    app.get('*', (req, res) => 
+        res.sendFile(
+            path.resolve(__dirname, '../client/build/index.html')
+        )
+    ) 
+} else {
+    app.get('/', (req, res) => res.send('Please set Node Environment to Production.'))
+}
 
 // connect to mongoDB
 mongoose.connect(process.env.MONGO_URI)

@@ -27,7 +27,7 @@ const taskSchema = new Schema({
         required: true
     },
     subTask: {
-        type: String,
+        type: [String],
         required: false
     }
 }, { timestamps: true });

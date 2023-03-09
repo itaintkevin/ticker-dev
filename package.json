@@ -7,5 +7,6 @@
   "devDependencies": {
     "concurrently": "^7.6.0",
     "hardhat": "^2.12.7"
-  }
+  },
+  "dependencies": {}
 }
